@@ -17,9 +17,23 @@ except psycopg2.Error:
 
 # issue query
 
-cmd = ""
+# cmd = '''
+# DROP TABLE IF EXISTS users;
+# create table users (
+#     first varchar not null,
+#     last varchar not null,
+#     id int not null,
+#     primary key(id)
+# );
+# '''
+
+cmd = "DROP TABLE IF EXISTS test3;" \
+      "CREATE TABLE test3(val1 VARCHAR NOT NULL, val2 VARCHAR NOT NULL);" \
+      "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rwlebl16, knmurp16;"
 
 # every query needs a cursor, a cursor is a reference to the result
 # of a query
 cur = conn.cursor()
-# cur.execute(cmd, (major, ))
+cur.execute(cmd, ())
+
+conn.commit()
