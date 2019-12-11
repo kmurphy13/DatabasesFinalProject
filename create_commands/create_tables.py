@@ -27,7 +27,7 @@ except psycopg2.Error:
 # );
 # '''
 
-cmd = "DROP TABLE IF EXISTS test3;" \
+cmd = "DROP TABLE IF EXISTS users;" \
       "CREATE TABLE test3(val1 VARCHAR NOT NULL, val2 VARCHAR NOT NULL);" \
       "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rwlebl16, knmurp16;"
 
