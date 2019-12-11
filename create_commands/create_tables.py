@@ -27,13 +27,81 @@ except psycopg2.Error:
 # );
 # '''
 
-cmd = "DROP TABLE IF EXISTS users;" \
-      "CREATE TABLE test3(val1 VARCHAR NOT NULL, val2 VARCHAR NOT NULL);" \
-      "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rwlebl16, knmurp16;"
+cmd = '''
+    DROP TYPE IF EXISTS pass_type;
+    DROP TYPE IF EXISTS worker_type;
+    DROP TYPE IF EXISTS equipment_type;
+    DROP TYPE IF EXISTS trail_type;
+    DROP TYPE IF EXISTS trail_difficulty;
+    DROP TYPE IF EXISTS facilities_type;
+    
+    CREATE TYPE pass_type AS ENUM ('season', 'day', 'half_day', 'student', 'child', 'senior');
+    CREATE TYPE worker_type AS ENUM ('worker', 'skier', 'DBM');
+    CREATE TYPE equipment_type AS ENUM ('skis', 'poles', 'helmet', 'goggles', 'snowboard', 'snowboard_boots', 'ski_boots');
+    CREATE TYPE trail_type AS ENUM ('glades', 'terrain_park','moguls','groomer');
+    CREATE TYPE trail_difficulty AS ENUM ('easy','intermediate','difficult','very_difficult') ;
+    CREATE TYPE facilities_type AS  ENUM ('lodge', 'chairlift', 'ski_patrol_hut', 'bar');
+    
+    DROP TABLE IF EXISTS users;
+    CREATE TABLE users(
+        user_id INT NOT NULL,
+        email VARCHAR NOT NULL,
+        password VARCHAR NOT NULL,
+        first_name VARCHAR NOT NULL,
+        last_name VARCHAR NOT NULL,
+        type WORKER_TYPE NOT NULL,
+        PRIMARY KEY(user_id)
+    );
+    
+    DROP TABLE IF EXISTS trails;
+    CREATE TABLE trails(
+        trail_name VARCHAR NOT NULL,
+        difficulty TRAIL_DIFFICULTY NOT NULL,
+        type TRAIL_TYPE NOT NULL,
+        length INT NOT NULL,
+        status  BOOLEAN NOT NULL, 
+        PRIMARY KEY(trail_name)
+    );
+    
+    DROP TABLE IF EXISTS facilities;
+    CREATE TABLE facilities(
+        facility_name VARCHAR NOT NULL,
+        type FACILITIES_TYPE NOT NULL,
+        capacity NUMERIC(10) NOT NULL, 
+        status BOOLEAN NOT NULL,
+        PRIMARY KEY (facility_name)
+    );
+    
+    DROP TABLE IF EXISTS equipment;
+    CREATE TABLE equipment(
+    equipment_id  INT NOT NULL,
+        type EQUIPMENT_TYPE NOT NULL,
+        PRIMARY KEY(equipment_id)
+    );
+    
+    DROP TABLE IF EXISTS passes;
+    CREATE TABLE passes(
+        type PASS_TYPE NOT NULL,
+        price NUMERIC(10),
+        PRIMARY KEY(type)
+    );
+    
+    
+    DROP TABLE IF EXISTS time_slots;
+    CREATE TABLE time_slots(
+        time_slot NUMERIC(10) NOT NULL,
+        start_time VARCHAR NOT NULL,
+        length NUMERIC(10) NOT NULL,
+        PRIMARY KEY (time_slot)
+    );
+
+
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rwlebl16, knmurp16;
+    '''
 
 # every query needs a cursor, a cursor is a reference to the result
 # of a query
 cur = conn.cursor()
-cur.execute(cmd, ())
+cur.execute(cmd)
 
 conn.commit()
