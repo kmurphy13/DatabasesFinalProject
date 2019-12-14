@@ -72,18 +72,21 @@ cmd = '''
         PRIMARY KEY (facility_name)
     );
     
-    DROP TABLE IF EXISTS equipment;
+    DROP TABLE IF EXISTS rentals;
     CREATE TABLE equipment(
     equipment_id  INT NOT NULL,
         type EQUIPMENT_TYPE NOT NULL,
-        PRIMARY KEY(equipment_id)
+        PRIMARY KEY(user_id, rental_id)
     );
     
     DROP TABLE IF EXISTS passes;
     CREATE TABLE passes(
-        type PASS_TYPE NOT NULL,
+        type pass_id NOT NULL,
+        type user_id NOT NULL,
         price NUMERIC(10),
-        PRIMARY KEY(type)
+        PRIMARY KEY(user_id, pass_id),
+        FOREIGN KEY (user_id) REFERENCES skiers(user_id),
+        FOREIGN KEY (pass_id) REFERENCES pass_log(pass_id)
     );
     
     
