@@ -57,7 +57,6 @@ cmd = '''
         email VARCHAR NOT NULL,
         first_name VARCHAR NOT NULL,
         last_name VARCHAR NOT NULL,
-        type USER_TYPE NOT NULL,
         PRIMARY KEY(user_id)
     );
     
@@ -107,7 +106,13 @@ cmd = '''
     DROP TABLE IF EXISTS skiers CASCADE;
     CREATE TABLE skiers(
         user_id NUMERIC NOT NULL,
-        days_skied NUMERIC NOT NULL,
+        PRIMARY KEY(user_id),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+    );
+    
+    DROP TABLE IF EXISTS data_base_manager CASCADE;
+    CREATE TABLE data_base_manager(
+        user_id NUMERIC NOT NULL,
         PRIMARY KEY(user_id),
         FOREIGN KEY (user_id) REFERENCES users(user_id)
     );

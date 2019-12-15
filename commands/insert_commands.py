@@ -29,12 +29,12 @@ INSERT
 INTO
 users
 VALUES
-(1, 'knmurp16@stlawu.edu ', 'Kira', 'Murphy', 'DBM'),
-(2, 'jbpeek16@stlawu.edu', 'Jonas', 'Peek', 'DBM'),
-(3, 'rwlebl16@stlawu.edu', 'Remi', 'LeBlanc', 'DBM'),
-(4, 'twjone16@stlawu.edu', 'Tim', 'Jones', 'skier'),
-(5, 'edharcourt@stlawu.edu', 'Ed', 'Harcourt', 'worker'),
-(6, 'jepatt16 @ stlawu.edu', 'Jack', 'Pattison', 'skier');
+(1, 'knmurp16@stlawu.edu ', 'Kira', 'Murphy'),
+(2, 'jbpeek16@stlawu.edu', 'Jonas', 'Peek'),
+(3, 'rwlebl16@stlawu.edu', 'Remi', 'LeBlanc'),
+(4, 'twjone16@stlawu.edu', 'Tim', 'Jones'),
+(5, 'edharcourt@stlawu.edu', 'Ed', 'Harcourt'),
+(6, 'jepatt16@stlawu.edu', 'Jack', 'Pattison');
 
 INSERT
 INTO
@@ -46,11 +46,20 @@ VALUES
 
 INSERT
 INTO
+data_base_manager
+VALUES
+(1),
+(2),
+(3);
+
+
+INSERT
+INTO
 skiers
 VALUES
-(4, 20),
-(5, 10),
-(6, 5);
+(4),
+(5),
+(6);
 
 INSERT
 INTO
