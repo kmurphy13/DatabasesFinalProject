@@ -101,7 +101,7 @@ ski_log
 VALUES
 (6, '12/12/2019', 0805, 'The Rumor'),
 (6, '12/12/2019', 1030, 'Showcase'),
-(4, 12/15/2019, 0900, 'Wild Air');
+(4, '12/15/2019', 0900, 'Wild Air');
 
 INSERT
 INTO
