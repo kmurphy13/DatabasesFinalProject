@@ -83,9 +83,9 @@ INSERT
 INTO
 rental_log
 VALUES
-(1, 'skis', '12/12/2019', '12/13/2019'),
-(2, 'snowboard', '12/15/2019', '12/15/2019'),
-(3, 'ski_boots', '12/15/2019', '12/15/2019');
+(1, 'skis', '12/12/2019', '2019-12-13'),
+(2, 'snowboard', '12/15/2019', '2019-12-15'),
+(3, 'ski_boots', '12/15/2019', '2019-12-15');
 
 INSERT
 INTO
@@ -99,9 +99,9 @@ INSERT
 INTO
 ski_log
 VALUES
-(6, '12/12/2019', 0805, 'The Rumor'),
-(6, '12/12/2019', 1030, 'Showcase'),
-(4, '12/15/2019', 0900, 'Wild Air');
+(6, '2019-12-15', 0805, 'The Rumor'),
+(6, '2019-12-15', 1030, 'Showcase'),
+(4, '2019-12-13', 0900, 'Wild Air');
 
 INSERT
 INTO
@@ -118,9 +118,9 @@ INSERT
 INTO
 pass_log
 VALUES
-(1, 'season', '11/29/2019', '05/30/2020'),
-(2, 'half_day', '12/12/2019', '12/12/2019'),
-(3, 'senior', '12/12/2019', '12/12/2019');
+(1, 'season', '2019-11-29', '2020-05-30'),
+(2, 'half_day', '2019-12-12', '2019-12-12'),
+(3, 'senior', '2019-12-12, '2019-12-12');
 
 INSERT
 INTO
@@ -142,34 +142,33 @@ INSERT
 INTO
 schedule
 VALUES
-('Base Lodge', 1, '12/25/2019', 1),
-('Tannery Pub', 2, '12/12/2019', 2),
-('Patrol Hut', 3, '12/12/2019', 3);
+('Base Lodge', 1, '2019-12-25', 1),
+('Tannery Pub', 2, '2019-12-12', 2),
+('Patrol Hut', 3, '2019-12-12', 3);
 
 INSERT
 INTO
 conditions
 VALUES
-('12/12/2019', 1, 3, 'packed_powder', 'powder', 5),
-('12/25/2019', 1, 0, 'packed_powder', 'powder', 8),
-('12/31/2019', 2, 10, 'powder', 'packed_powder', 20);
+('2019-12-12', 1, 3, 'packed_powder', 'powder', 5),
+('2019-12-25', 1, 0, 'packed_powder', 'powder', 8),
+('2019-12-31', 2, 10, 'powder', 'packed_powder', 20);
 
 INSERT
 INTO
 ski_patrol_report
 VALUES
-(2, '12/25/2019', 800,'Merry Christmas!'),
-(1, '12/12/2019', 1200, 'Blue bird day.'),
-(1, '12/13/2019', 800, 'All good.');
+(2, '2019-12-25', 800,'Merry Christmas!'),
+(1, '2019-12-12', 1200, 'Blue bird day.'),
+(1, '2019-12-13', 800, 'All good.');
 
 INSERT
 INTO
 lessons
 VALUES
-(2, 4,'12/12/2019', 2),
-(2, 6, '12/12/2019', 3),
-(2, 6, '12/13/2019', 3);
-
+(2, 4,'2019-12-12', 2),
+(2, 6, '2019-12-12', 3),
+(2, 6, '2019-12-13', 3);
 '''
 
 # of a query
