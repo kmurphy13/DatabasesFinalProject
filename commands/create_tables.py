@@ -28,12 +28,16 @@ except psycopg2.Error:
 # '''
 
 cmd = '''
-    DROP TYPE IF EXISTS pass_type CASCADE;
+    DROP TYPE IF EXISTS pass_types CASCADE;
     DROP TYPE IF EXISTS worker_type CASCADE;
+    DROP TYPE IF EXISTS user_type CASCADE;
     DROP TYPE IF EXISTS equipment_type CASCADE;
     DROP TYPE IF EXISTS trail_type CASCADE;
     DROP TYPE IF EXISTS trail_difficulty CASCADE;
     DROP TYPE IF EXISTS facilities_type CASCADE;
+    DROP TYPE IF EXISTS position_type CASCADE;
+    DROP TYPE IF EXISTS surface_type CASCADE;
+    DROP TYPE IF EXISTS chair_lift_type CASCADE;
     
     CREATE TYPE pass_types AS ENUM ('season', 'day', 'half_day', 'student', 'child', 'senior');
     CREATE TYPE user_type AS ENUM ('worker', 'skier', 'DBM');
@@ -164,9 +168,9 @@ cmd = '''
     DROP TABLE IF EXISTS ski_patrol_report CASCADE;
     CREATE TABLE ski_patrol_report(
         worker_id NUMERIC NOT NULL,
-        date NUMERIC NOT NULL,
+        date VARCHAR NOT NULL,
         time NUMERIC NOT NULL,
-        description NUMERIC NOT NULL,
+        description VARCHAR NOT NULL,
         PRIMARY KEY (worker_id, date, time),
         FOREIGN KEY (worker_id) REFERENCES workers(user_id)
     );
