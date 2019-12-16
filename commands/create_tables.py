@@ -30,7 +30,6 @@ except psycopg2.Error:
 cmd = '''
     DROP TYPE IF EXISTS pass_types CASCADE;
     DROP TYPE IF EXISTS worker_type CASCADE;
-    DROP TYPE IF EXISTS user_type CASCADE;
     DROP TYPE IF EXISTS equipment_type CASCADE;
     DROP TYPE IF EXISTS trail_type CASCADE;
     DROP TYPE IF EXISTS trail_difficulty CASCADE;
@@ -40,7 +39,6 @@ cmd = '''
     DROP TYPE IF EXISTS chair_lift_type CASCADE;
     
     CREATE TYPE pass_types AS ENUM ('season', 'day', 'half_day', 'student', 'child', 'senior');
-    CREATE TYPE user_type AS ENUM ('worker', 'skier', 'DBM');
     CREATE TYPE position_type AS ENUM ('owner', 'manager', 'ski_patrol', 'cook', 'bartender',
     'chairlift_operator', 'groomer', 'instructor');
     CREATE TYPE equipment_type AS ENUM ('skis', 'poles', 'helmet', 'goggles', 'snowboard', 'snowboard_boots', 'ski_boots');
@@ -91,41 +89,42 @@ cmd = '''
     CREATE TABLE pass_type(
         type PASS_TYPES NOT NULL,
         price NUMERIC NOT NULL,
+        length NUMERIC NOT NULL
         PRIMARY KEY(type)
-    );
-    
-    DROP TABLE IF EXISTS rental_log CASCADE;
-    CREATE TABLE rental_log(
-        rental_id NUMERIC NOT NULL,
-        equipment_type EQUIPMENT_TYPE NOT NULL,
-        start_date DATE NOT NULL,
-        end_date DATE NOT NULL,
-        PRIMARY KEY(rental_id)
-    );
-    
-    DROP TABLE IF EXISTS skiers CASCADE;
-    CREATE TABLE skiers(
-        user_id NUMERIC NOT NULL,
-        PRIMARY KEY(user_id),
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
-    );
-    
-    DROP TABLE IF EXISTS workers CASCADE;
-    CREATE TABLE workers(
-        user_id NUMERIC NOT NULL,
-        position POSITION_TYPE NOT NULL,
-        wage NUMERIC NOT NULL,
-        PRIMARY KEY(user_id),
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
     );
     
     DROP TABLE IF EXISTS rentals CASCADE;
     CREATE TABLE rentals(
-        user_id NUMERIC NOT NULL,
         rental_id NUMERIC NOT NULL,
-        PRIMARY KEY(user_id, rental_id),
-        FOREIGN KEY (user_id) REFERENCES skiers(user_id),
-        FOREIGN KEY (rental_id) REFERENCES rental_log(rental_id)
+        user_id NUMERIC NOT NULL,
+        start_date DATE NOT NULL,
+        end_date DATE NOT NULL,
+        PRIMARY KEY(user_id, start_date, end_date),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+    );
+
+    DROP TABLE IF EXISTS workers CASCADE;
+    CREATE TABLE workers(
+        user_id NUMERIC NOT NULL,
+        position POSITION_TYPE NOT NULL,
+        PRIMARY KEY(user_id, position),
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+        FOREIGN KEY (position) REFERENCES jobs(position)
+    );
+    
+    DROP TABLE IF EXISTS jobs CASCADE;
+    CREATE TABLE jobs(
+        position POSITION_TYPE NOT NULL, 
+        wage NUMERIC NOT NULL,
+        PRIMARY KEY (position)
+    );
+    
+    DROP TABLE IF EXISTS equipment_log CASCADE;
+    CREATE TABLE equipment_log(
+        rental_id NUMERIC NOT NULL,
+        equipment_type EQUIPMENT_TYPE NOT NULL,
+        PRIMARY KEY(rental_id, equipment_type),
+        FOREIGN KEY (rental_id) REFERENCES rentals(rental_id)
     );
     
     DROP TABLE IF EXISTS ski_log CASCADE;
@@ -135,19 +134,19 @@ cmd = '''
         time NUMERIC(4) NOT NULL,
         trail_name VARCHAR NOT NULL,
         PRIMARY KEY(user_id, date, time),
-        FOREIGN KEY (user_id) REFERENCES skiers(user_id),
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
         FOREIGN KEY (trail_name) REFERENCES trails(trail_name)
     );
     
     DROP TABLE IF EXISTS lessons CASCADE;
     CREATE TABLE lessons(
         teacher_id NUMERIC NOT NULL,
-        skier_id NUMERIC NOT NULL,
+        user_id NUMERIC NOT NULL,
         date DATE NOT NULL,
         time_slot NUMERIC NOT NULL,
-        PRIMARY KEY(teacher_id, skier_id, date, time_slot),
+        PRIMARY KEY(teacher_id, user_id, date, time_slot),
         FOREIGN KEY (teacher_id) REFERENCES workers(user_id),
-        FOREIGN KEY (skier_id) REFERENCES skiers(user_id),
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
         FOREIGN KEY (time_slot) REFERENCES time_slots(time_slot)
     );
     
@@ -159,39 +158,30 @@ cmd = '''
         primary_surface SURFACE_TYPE,
         secondary_surface SURFACE_TYPE,
         base_depth NUMERIC,
-        PRIMARY KEY (date, reporter),
+        PRIMARY KEY (date),
         FOREIGN KEY (reporter) REFERENCES workers(user_id)
     );
     
     DROP TABLE IF EXISTS ski_patrol_report CASCADE;
     CREATE TABLE ski_patrol_report(
-        worker_id NUMERIC NOT NULL,
+        user_id NUMERIC NOT NULL,
         date DATE NOT NULL,
         time NUMERIC NOT NULL,
         description VARCHAR NOT NULL,
         PRIMARY KEY (worker_id, date, time),
-        FOREIGN KEY (worker_id) REFERENCES workers(user_id)
-    );
-    
-    DROP TABLE IF EXISTS pass_log CASCADE;
-    CREATE TABLE pass_log(
-        pass_id NUMERIC NOT NULL,
-        pass_type PASS_TYPES NOT NULL,
-        start_date DATE NOT NULL,
-        end_date DATE NOT NULL,
-        PRIMARY KEY(pass_id),
-        FOREIGN KEY (pass_type) REFERENCES pass_type(type)
+        FOREIGN KEY (user_id) REFERENCES workers(user_id)
     );
     
     DROP TABLE IF EXISTS passes CASCADE;
     CREATE TABLE passes(
-        pass_id NUMERIC NOT NULL,
         user_id NUMERIC NOT NULL,
-        PRIMARY KEY(user_id, pass_id),
-        FOREIGN KEY (user_id) REFERENCES skiers(user_id),
-        FOREIGN KEY (pass_id) REFERENCES pass_log(pass_id)
+        pass_type PASS_TYPES NOT NULL,
+        start_date DATE NOT NULL,
+        PRIMARY KEY(user_id, start_date),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
     );
     
+   
     DROP TABLE IF EXISTS chair_lifts CASCADE;
     CREATE TABLE chair_lifts(
         name VARCHAR NOT NULL,
@@ -206,10 +196,10 @@ cmd = '''
     
     DROP TABLE IF EXISTS schedule CASCADE;
     CREATE TABLE schedule(
-        facility_name VARCHAR NOT NULL,
         user_id NUMERIC NOT NULL,
-        date DATE NOT NULL,
         time_slot NUMERIC NOT NULL,
+        date DATE NOT NULL,
+        facility_name VARCHAR NOT NULL,
         PRIMARY KEY(user_id, date, time_slot),
         FOREIGN KEY (time_slot) REFERENCES time_slots(time_slot),
         FOREIGN KEY (facility_name) REFERENCES facilities(facility_name),
