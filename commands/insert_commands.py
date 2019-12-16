@@ -38,7 +38,7 @@ VALUES
 (3, 'rwlebl16@stlawu.edu', 'Remi', 'LeBlanc'),
 (4, 'twjone16@stlawu.edu', 'Tim', 'Jones'),
 (5, 'edharcourt@stlawu.edu', 'Ed', 'Harcourt'),
-(6, 'jepatt16@stlawu.edu', 'Jack', 'Pattison');
+(6, 'jepatt16@stlawu.edu', 'Jack', 'Pattison'),
 (7, 'dmsteh16@stlawu.edu', 'David', 'Stehle');
 
 INSERT
@@ -47,6 +47,7 @@ workers
 VALUES
 (1, 'owner', 100000),
 (2,'ski_patrol', 20),
+(5,'instructor', 20),
 (7,'chairlift_operator', 20),
 (3,'cook', 15);
 
@@ -84,13 +85,20 @@ INSERT
 INTO
 facilities
 VALUES
-('Base Lodge', 'lodge', 500, true),
-('Northwoods Lodge', 'lodge', 200, false),
+('Base Lodge', 'lodge', 20, true),
+('Northwoods Lodge', 'lodge', 20, false),
 ('Patrol Hut', 'ski_patrol_hut', 15, true),
-('Saddle Lodge', 'lodge', 350, true),
-('Straight Brook Lodge', 'lodge', 80, true),
-('Warming Hut', 'lodge', 28, true),
-('Tannery Pub', 'bar', '150', false);
+('Saddle Lodge', 'lodge', 20, true),
+('Straight Brook Lodge', 'lodge', 6, true),
+('Warming Hut', 'lodge', 4, true),
+('Tannery Pub', 'bar', 6, false),
+('Ski School', 'ski_school', 40, false),
+('Express Quad', 'chairlift', 5, true),
+('Burnt Ridge Quad', 'chairlift', 5, true),
+('Adirondack Express II', 'chairlift', 5, true),
+('Hudson Chair', 'chairlift', 5, true),
+('Cloud Splitter', 'chairlift', 5, false),
+('Northwoods Gondola', 'chairlift', 5, true);
 
 INSERT
 INTO
@@ -117,16 +125,16 @@ INSERT
 INTO
 rentals
 VALUES
-(5, 1),
-(5, 2),
-(5, 3),
-(5, 4),
-(5, 5),
-(5, 12),
-(5, 13),
-(5, 14),
-(5, 15),
-(5, 16),
+(4, 1),
+(4, 2),
+(4, 3),
+(4, 4),
+(4, 5),
+(4, 12),
+(4, 13),
+(4, 14),
+(4, 15),
+(4, 16),
 (6, 6),
 (6, 7),
 (6, 8),
@@ -244,7 +252,7 @@ VALUES
 ('Base Lodge', 3, '2019-12-29', 2),
 ('Base Lodge', 3, '2019-12-30', 2),
 ('Base Lodge', 3, '2019-12-31', 2),
-('Base Lodge', 3, '2019-1-1', 2),
+('Base Lodge', 3, '2020-1-1', 2),
 ('Base Lodge', 3, '2019-12-25', 5),
 ('Base Lodge', 3, '2019-12-26', 5),
 ('Base Lodge', 3, '2019-12-27', 5),
@@ -252,18 +260,45 @@ VALUES
 ('Base Lodge', 3, '2019-12-29', 5),
 ('Base Lodge', 3, '2019-12-30', 5),
 ('Base Lodge', 3, '2019-12-31', 5),
-('Base Lodge', 3, '2019-1-1', 5),
-('Ski Patrol', 2, '2020-1-1', 3),
+('Base Lodge', 3, '2020-1-1', 5),
+('Patrol Hut', 2, '2020-1-1', 3),
 ('Patrol Hut', 2, '2020-1-2', 3),
-('Ski Patrol', 2, '2020-1-4', 3),
+('Patrol Hut', 2, '2020-1-4', 3),
 ('Patrol Hut', 2, '2020-1-6', 3),
-('Ski Patrol', 2, '2020-1-7', 3),
+('Patrol Hut', 2, '2020-1-7', 3),
 ('Patrol Hut', 2, '2020-1-8', 3),
-('Ski Patrol', 2, '2020-1-10', 3),
+('Patrol Hut', 2, '2020-1-10', 3),
 ('Patrol Hut', 2, '2020-1-11', 3),
-('Ski Patrol', 2, '2020-1-12', 3),
+('Patrol Hut', 2, '2020-1-12', 3),
 ('Patrol Hut', 2, '2020-1-14', 3),
-('Patrol Hut', 3, '2019-12-12', 3);
+('Express Quad', 7, '2019-12-29', 2),
+('Express Quad', 7, '2019-12-30', 5),
+('Northwoods Gondola', 7, '2019-12-31', 5),
+('Adirondack Express II', 7, '2020-1-1', 2),
+('Adirondack Express II', 7, '2020-1-1', 5),
+('Northwoods Gondola', 7, '2020-1-2', 2),
+('Express Quad', 7, '2020-1-4', 2),
+('Adirondack Express II', 7, '2020-1-6', 2),
+('Express Quad', 7, '2020-1-7', 5),
+('Northwoods Gondola', 7, '2020-1-8', 5),
+('Express Quad', 7, '2020-1-10', 5),
+('Adirondack Express II', 7, '2020-1-11', 2),
+('Northwoods Gondola', 7, '2020-1-12', 2),
+('Express Quad', 7, '2020-1-14', 5),
+('Ski School', 5, '2020-01-02', 5),
+('Ski School', 5, '2020-01-03', 5),
+('Ski School', 5, '2020-01-04', 5),
+('Ski School', 5, '2020-01-05', 5),
+('Ski School', 5, '2020-01-06', 5),
+('Ski School', 5, '2020-01-07', 5),
+('Ski School', 5, '2020-01-08', 5),
+('Ski School', 5, '2020-01-09', 5),
+('Ski School', 5, '2020-01-10', 5),
+('Ski School', 5, '2020-01-11', 5),
+('Ski School', 5, '2020-01-12', 5),
+('Ski School', 5, '2020-01-13', 5),
+('Ski School', 5, '2020-01-14', 5),
+('Ski School', 5, '2020-01-15', 5);
 
 INSERT
 INTO
@@ -278,16 +313,27 @@ INTO
 ski_patrol_report
 VALUES
 (2, '2019-12-25', 800,'Merry Christmas!'),
-(1, '2019-12-12', 1200, 'Blue bird day.'),
-(1, '2019-12-13', 800, 'All good.');
+(2, '2019-12-12', 1200, 'Blue bird day.'),
+(2, '2019-12-13', 800, 'All good.');
 
 INSERT
 INTO
 lessons
 VALUES
-(2, 4,'2019-12-12', 2),
-(2, 6, '2019-12-12', 3),
-(2, 6, '2019-12-13', 3);
+(5, 4, '2020-01-02', 5),
+(5, 4, '2020-01-03', 5),
+(5, 4, '2020-01-04', 5),
+(5, 4, '2020-01-05', 5),
+(5, 4, '2020-01-06', 5),
+(5, 4, '2020-01-07', 5),
+(5, 4, '2020-01-08', 5),
+(5, 4, '2020-01-09', 5),
+(5, 4, '2020-01-10', 5),
+(5, 4, '2020-01-11', 5),
+(5, 4, '2020-01-12', 5),
+(5, 4, '2020-01-13', 5),
+(5, 4, '2020-01-14', 5),
+(5, 4, '2020-01-15', 5);
 
 '''
 

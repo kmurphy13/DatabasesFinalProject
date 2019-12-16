@@ -46,7 +46,7 @@ cmd = '''
     CREATE TYPE equipment_type AS ENUM ('skis', 'poles', 'helmet', 'goggles', 'snowboard', 'snowboard_boots', 'ski_boots');
     CREATE TYPE trail_type AS ENUM ('glades', 'terrain_park','moguls','groomer');
     CREATE TYPE trail_difficulty AS ENUM ('easy','intermediate','difficult','very_difficult') ;
-    CREATE TYPE facilities_type AS  ENUM ('lodge', 'ski_patrol_hut', 'bar');
+    CREATE TYPE facilities_type AS  ENUM ('lodge', 'ski_patrol_hut', 'bar', 'ski_school', 'chairlift');
     CREATE TYPE surface_type AS ENUM('packed_powder','powder','frozen_granular','loose_granular');
     CREATE TYPE chair_lift_type AS ENUM('gondola','quad','t_bar','magic_carpet','triple','double');
     
@@ -200,7 +200,8 @@ cmd = '''
         num_poles NUMERIC NOT NULL,
         num_chairs NUMERIC NOT NULL,
         status BOOLEAN NOT NULL,
-        PRIMARY KEY(name)
+        PRIMARY KEY(name),
+        FOREIGN KEY (name) REFERENCES facilities(facility_name)
     );
     
     DROP TABLE IF EXISTS schedule CASCADE;
