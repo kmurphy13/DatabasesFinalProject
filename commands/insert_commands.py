@@ -284,7 +284,7 @@ VALUES
 ('Express Quad', 7, '2020-1-10', 5),
 ('Adirondack Express II', 7, '2020-1-11', 2),
 ('Northwoods Gondola', 7, '2020-1-12', 2),
-('Express Quad', 7, '2020-1-14', 5),
+('Express Quad', 7, '2020-1-14', 5),q
 ('Ski School', 5, '2020-01-02', 5),
 ('Ski School', 5, '2020-01-03', 5),
 ('Ski School', 5, '2020-01-04', 5),
@@ -306,15 +306,49 @@ conditions
 VALUES
 ('2019-12-12', 1, 3, 'packed_powder', 'powder', 5),
 ('2019-12-25', 1, 0, 'packed_powder', 'powder', 8),
-('2019-12-31', 2, 10, 'powder', 'packed_powder', 20);
+('2019-12-31', 2, 10, 'powder', 'packed_powder', 18),
+('2020-01-01', 2, 2, 'powder', 'packed_powder', 20),
+('2020-01-02', 2, 0, 'packed_powder', 'packed_powder', 20),
+('2020-01-03', 2, 0, 'packed_powder', 'packed_powder', 20),
+('2020-01-04', 2, 7, 'powder', 'packed_powder', 27),
+('2020-01-05', 1, 0, 'powder', 'packed_powder', 27),
+('2020-01-06', 2, 12, 'powder', 'powder', 39),
+('2020-01-07', 2, 4, 'powder', 'powder', 43),
+('2020-01-08', 2, 1, 'powder', 'packed_powder', 44),
+('2020-01-09', 2, 0, 'packed_powder', 'packed_powder', 44),
+('2020-01-10', 1, 0, 'packed_powder', 'packed_powder', 44),
+('2020-01-11', 1, 0, 'packed_powder', 'frozen_granular', 44),
+('2020-01-12', 2, 0, 'packed_powder', 'frozen_granular', 44),
+('2020-01-13', 2, 0, 'packed_powder', 'frozen_granular', 44),
+('2020-01-14', 1, 0, 'packed_powder', 'frozen_granular', 44),
+('2020-01-15', 1, 0, 'packed_powder', 'frozen_granular', 44),
+('2020-01-16', 2, 0, 'packed_powder', 'frozen_granular', 44),
+('2020-01-17', 2, 0, 'frozen_granular', 'frozen_granular', 44),
+('2020-01-18', 1, 0, 'frozen_granular', 'frozen_granular', 44),
+('2020-01-19', 1, 0, 'frozen_granular', 'frozen_granular', 44),
+('2020-01-20', 2, 0, 'frozen_granular', 'frozen_granular', 44),
+('2020-01-21', 2, 3, 'powder', 'frozen_granular', 47),
+('2020-01-22', 2, 6, 'powder', 'packed_powder', 53),
+('2020-01-22', 2, 2, 'powder', 'powder', 55),
+('2020-01-22', 2, 7, 'powder', 'powder', 62),
+('2020-01-22', 2, 3, 'powder', 'powder', 65);
 
 INSERT
 INTO
 ski_patrol_report
 VALUES
-(2, '2019-12-25', 800,'Merry Christmas!'),
-(2, '2019-12-12', 1200, 'Blue bird day.'),
-(2, '2019-12-13', 800, 'All good.');
+(2, '2019-12-25', 950,'Broken arm halfway down Showcase. Skier was transported to the base via a toboggan.'),
+(2, '2019-12-12', 1200, 'Unexperienced skier unable to make their way down the trail on Lies, snow mobile was called to 
+transport skier to the base.'),
+(2, '2019-12-13', 1000, 'Concussion on Lies, the skier was transported to the base via toboggan.'),
+(2, '2019-12-14', 1100, 'Hurt knee on Wild Air. Skier was transported to the base via a toboggan for further inspection.'),
+(2, '2019-12-13', 1350, 'Skier hit tree on Twister Glades, they appear to be fine but were frightened. Advised to go home.')
+(2, '2020-01-25', 950,'Broken arm halfway down Showcase. Skier was transported to the base via a toboggan.'),
+(2, '2020-02-12', 1200, 'Unexperienced skier unable to make their way down the trail on Lies, snow mobile was called to 
+transport skier to the base.'),
+(2, '2020-02-13', 1000, 'Concussion on Lies, the skier was transported to the base via toboggan.'),
+(2, '2020-02-16', 1100, 'Hurt leg on Wild Air. Skier was transported to the base via a toboggan for further inspection.'),
+(2, '2020-03-03', 1350, 'Skier hit tree on Twister Glades, they appear to be fine but were frightened. Advised to go home.');
 
 INSERT
 INTO
@@ -333,7 +367,21 @@ VALUES
 (5, 4, '2020-01-12', 5),
 (5, 4, '2020-01-13', 5),
 (5, 4, '2020-01-14', 5),
-(5, 4, '2020-01-15', 5);
+(5, 4, '2020-01-15', 5),
+(5, 6, '2020-02-02', 5),
+(5, 6, '2020-02-03', 5),
+(5, 6, '2020-02-04', 5),
+(5, 6, '2020-02-05', 5),
+(5, 6, '2020-02-06', 5),
+(5, 6, '2020-02-07', 5),
+(5, 6, '2020-02-08', 5),
+(5, 6, '2020-02-09', 5),
+(5, 6, '2020-02-10', 5),
+(5, 6, '2020-02-11', 5),
+(5, 6, '2020-02-12', 5),
+(5, 6, '2020-02-13', 5),
+(5, 6, '2020-02-14', 5),
+(5, 6, '2020-02-15', 5);
 
 '''
 
