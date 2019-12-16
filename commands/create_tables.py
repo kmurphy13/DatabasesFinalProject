@@ -98,20 +98,13 @@ cmd = '''
     CREATE TABLE rental_log(
         rental_id NUMERIC NOT NULL,
         equipment_type EQUIPMENT_TYPE NOT NULL,
-        start_date VARCHAR NOT NULL,
-        end_date VARCHAR NOT NULL,
+        start_date DATE NOT NULL,
+        end_date DATE NOT NULL,
         PRIMARY KEY(rental_id)
     );
     
     DROP TABLE IF EXISTS skiers CASCADE;
     CREATE TABLE skiers(
-        user_id NUMERIC NOT NULL,
-        PRIMARY KEY(user_id),
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
-    );
-    
-    DROP TABLE IF EXISTS data_base_manager CASCADE;
-    CREATE TABLE data_base_manager(
         user_id NUMERIC NOT NULL,
         PRIMARY KEY(user_id),
         FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -138,7 +131,7 @@ cmd = '''
     DROP TABLE IF EXISTS ski_log CASCADE;
     CREATE TABLE ski_log(
         user_id NUMERIC NOT NULL,
-        date VARCHAR NOT NULL,
+        date DATE NOT NULL,
         time NUMERIC(4) NOT NULL,
         trail_name VARCHAR NOT NULL,
         PRIMARY KEY(user_id, date, time),
@@ -150,7 +143,7 @@ cmd = '''
     CREATE TABLE lessons(
         teacher_id NUMERIC NOT NULL,
         skier_id NUMERIC NOT NULL,
-        date VARCHAR NOT NULL,
+        date DATE NOT NULL,
         time_slot NUMERIC NOT NULL,
         PRIMARY KEY(teacher_id, skier_id, date, time_slot),
         FOREIGN KEY (teacher_id) REFERENCES workers(user_id),
@@ -160,7 +153,7 @@ cmd = '''
     
     DROP TABLE IF EXISTS conditions CASCADE;
     CREATE TABLE conditions(
-        date VARCHAR NOT NULL,
+        date DATE NOT NULL,
         reporter NUMERIC NOT NULL,
         snowfall NUMERIC,
         primary_surface SURFACE_TYPE,
@@ -173,7 +166,7 @@ cmd = '''
     DROP TABLE IF EXISTS ski_patrol_report CASCADE;
     CREATE TABLE ski_patrol_report(
         worker_id NUMERIC NOT NULL,
-        date VARCHAR NOT NULL,
+        date DATE NOT NULL,
         time NUMERIC NOT NULL,
         description VARCHAR NOT NULL,
         PRIMARY KEY (worker_id, date, time),
@@ -184,8 +177,8 @@ cmd = '''
     CREATE TABLE pass_log(
         pass_id NUMERIC NOT NULL,
         pass_type PASS_TYPES NOT NULL,
-        start_date VARCHAR NOT NULL,
-        end_date VARCHAR NOT NULL,
+        start_date DATE NOT NULL,
+        end_date DATE NOT NULL,
         PRIMARY KEY(pass_id),
         FOREIGN KEY (pass_type) REFERENCES pass_type(type)
     );
@@ -214,7 +207,7 @@ cmd = '''
     CREATE TABLE schedule(
         facility_name VARCHAR NOT NULL,
         user_id NUMERIC NOT NULL,
-        date VARCHAR NOT NULL,
+        date DATE NOT NULL,
         time_slot NUMERIC NOT NULL,
         PRIMARY KEY(user_id, date, time_slot),
         FOREIGN KEY (time_slot) REFERENCES time_slots(time_slot),

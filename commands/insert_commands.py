@@ -23,7 +23,11 @@ time_slots
 VALUES
 (1, 800, 8),
 (2, 800, 4),
-(3, 1200, 5);
+(3, 600, 4),
+(4, 900, 5),
+(5, 1300, 3),
+(6, 1200, 5),
+(7, 1700, 5);
 
 INSERT
 INTO
@@ -35,6 +39,7 @@ VALUES
 (4, 'twjone16@stlawu.edu', 'Tim', 'Jones'),
 (5, 'edharcourt@stlawu.edu', 'Ed', 'Harcourt'),
 (6, 'jepatt16@stlawu.edu', 'Jack', 'Pattison');
+(7, 'dmsteh16@stlawu.edu', 'David', 'Stehle');
 
 INSERT
 INTO
@@ -42,21 +47,15 @@ workers
 VALUES
 (1, 'owner', 100000),
 (2,'ski_patrol', 20),
-(3,'chairlift_operator', 15);
-
-INSERT
-INTO
-data_base_manager
-VALUES
-(1),
-(2),
-(3);
-
+(7,'chairlift_operator', 20),
+(3,'cook', 15);
 
 INSERT
 INTO
 skiers
 VALUES
+(2),
+(7),
 (4),
 (5),
 (6);
@@ -68,7 +67,18 @@ VALUES
 ('The Rumor', 'very_difficult', 'groomer', 500, true),
 ('Ruby Run', 'easy', 'groomer', 1600, true),
 ('Showcase', 'intermediate', 'groomer', 2000, true),
-('Wild Air', 'difficult', 'terrain_park', 1000, false);
+('Wild Air', 'difficult', 'terrain_park', 1000, false),
+('Twister Glades', 'difficult', 'glades', 300, false),
+('Crystal', 'intermediate', 'moguls', 150, true),
+('The gully', 'intermediate', 'groomer', 4400, true),
+('Little Dipper', 'intermediate', 'groomer', 800, true),
+('Lower Sunway', 'easy', 'groomer', 3800, true),
+('Sunway', 'easy', 'groomer', 4200, true),
+('Twister', 'intermediate', 'moguls', 3800, true),
+('Lies', 'very_difficult', 'moguls', 2600, false),
+('Open Pit', 'difficult', 'moguls', 1300, true),
+('Hawk Eye', 'difficult', 'moguls', 3800, false),
+('Powder Pass', 'intermediate', 'groomer', 3800, true);
 
 INSERT
 INTO
@@ -77,31 +87,109 @@ VALUES
 ('Base Lodge', 'lodge', 500, true),
 ('Northwoods Lodge', 'lodge', 200, false),
 ('Patrol Hut', 'ski_patrol_hut', 15, true),
+('Saddle Lodge', 'lodge', 350, true),
+('Straight Brook Lodge', 'lodge', 80, true),
+('Warming Hut', 'lodge', 28, true),
 ('Tannery Pub', 'bar', '150', false);
 
 INSERT
 INTO
 rental_log
 VALUES
-(1, 'skis', '12/12/2019', '2019-12-13'),
-(2, 'snowboard', '12/15/2019', '2019-12-15'),
-(3, 'ski_boots', '12/15/2019', '2019-12-15');
+(1, 'skis', '2019-12-12', '2019-12-13'),
+(2, 'poles', '2019-12-12', '2019-12-13'),
+(3, 'ski_boots', '2019-12-12', '2019-12-13'),
+(4, 'helmet', '2019-12-12', '2019-12-13'),
+(5, 'goggles', '2019-12-12', '2019-12-13'),
+(6, 'snowboard', '2019-12-15', '2019-12-15'),
+(7, 'snowboard_boots', '2019-12-15', '2019-12-15'),
+(8, 'helmet', '2019-12-15', '2019-12-15'),
+(9, 'goggles', '2019-12-15', '2019-12-15'),
+(10, 'skis', '2019-12-15', '2019-1-26'),
+(11, 'ski_boots', '2019-12-15', '2019-1-26'),
+(12, 'skis', '2019-12-28', '2019-12-30'),
+(13, 'poles', '2019-12-28', '2019-12-30'),
+(14, 'ski_boots', '2019-12-28', '2019-12-30'),
+(15, 'helmet', '2019-12-28', '2019-12-30'),
+(16, 'goggles', '2019-12-28', '2019-12-30');
 
 INSERT
 INTO
 rentals
 VALUES
-(6, 1),
-(4, 2),
-(4, 3);
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+(5, 5),
+(5, 12),
+(5, 13),
+(5, 14),
+(5, 15),
+(5, 16),
+(6, 6),
+(6, 7),
+(6, 8),
+(6, 9),
+(4, 10),
+(4, 11);
 
 INSERT
 INTO
 ski_log
 VALUES
-(6, '2019-12-15', 0805, 'The Rumor'),
-(6, '2019-12-15', 1030, 'Showcase'),
-(4, '2019-12-13', 0900, 'Wild Air');
+(5, '2019-12-12', 930, 'Ruby Run'),
+(5, '2019-12-12', 950, 'Ruby Run'),
+(5, '2019-12-12', 1020, 'Lower Sunway'),
+(5, '2019-12-12', 1045, 'Sunway'),
+(5, '2019-12-12', 1134, 'Showcase'),
+(5, '2019-12-12', 1330, 'The gully'),
+(5, '2019-12-12', 1355, 'Showcase'),
+(5, '2019-12-12', 1428, 'The gully'),
+(5, '2019-12-12', 1458, 'Open Pit'),
+(4, '2019-12-13', 903, 'Wild Air'),
+(4, '2019-12-13', 928, 'Wild Air'),
+(4, '2019-12-13', 959, 'Wild Air'),
+(4, '2019-12-13', 1013, 'Wild Air'),
+(4, '2019-12-13', 1038, 'Wild Air'),
+(4, '2019-12-13', 1102, 'Wild Air'),
+(4, '2019-12-13', 1139, 'Wild Air'),
+(6, '2019-12-15', 905, 'The Rumor'),
+(6, '2019-12-15', 942, 'Open Pit'),
+(6, '2019-12-15', 1030, 'The Rumor'),
+(6, '2019-12-15', 1057, 'Twister Glades'),
+(6, '2019-12-15', 1129, 'Showcase'),
+(6, '2019-12-15', 1205, 'Showcase'),
+(6, '2019-12-15', 1340, 'The Rumor'),
+(6, '2019-12-15', 1405, 'Hawk Eye'),
+(5, '2019-12-28', 930, 'Ruby Run'),
+(5, '2019-12-28', 954, 'Twister Glades'),
+(5, '2019-12-28', 1020, 'Hawk Eye'),
+(5, '2019-12-28', 1045, 'Sunway'),
+(5, '2019-12-28', 1136, 'Showcase'),
+(5, '2019-12-28', 1339, 'Twister Glades'),
+(5, '2019-12-28', 1355, 'Hawk Eye'),
+(5, '2019-12-28', 1420, 'The gully'),
+(5, '2019-12-28', 1458, 'Open Pit'),
+(5, '2019-12-29', 930, 'Ruby Run'),
+(5, '2019-12-29', 950, 'Hawk Eye'),
+(5, '2019-12-29', 1015, 'Twister Glades'),
+(5, '2019-12-29', 1045, 'Open Pit'),
+(5, '2019-12-29', 1137, 'Hawk Eye'),
+(5, '2019-12-29', 1333, 'The gully'),
+(5, '2019-12-29', 1355, 'Twister Glades'),
+(5, '2019-12-29', 1420, 'Hawk Eye'),
+(5, '2019-12-29', 1446, 'Hawk Eye'),
+(5, '2019-12-29', 1512, 'Open Pit'),
+(7, '2019-2-25', 930, 'Ruby Run'),
+(7, '2019-2-25', 950, 'Ruby Run'),
+(7, '2019-2-25', 1020, 'Lower Sunway'),
+(7, '2019-2-25', 1045, 'Sunway'),
+(7, '2019-2-25', 1134, 'Showcase'),
+(7, '2019-2-25', 1330, 'The gully'),
+(7, '2019-2-25', 1355, 'Showcase'),
+(7, '2019-2-25', 1428, 'The gully'),
+(7, '2019-2-25', 1458, 'Open Pit');
 
 INSERT
 INTO
@@ -120,7 +208,9 @@ pass_log
 VALUES
 (1, 'season', '2019-11-29', '2020-05-30'),
 (2, 'half_day', '2019-12-12', '2019-12-12'),
-(3, 'senior', '2019-12-12, '2019-12-12');
+(3, 'senior', '2019-12-12', '2019-12-12'),
+(4, 'season', '2019-12-08', '2019-05-30'),
+(5, 'season', '2019-11-25', '2019-05-30');
 
 INSERT
 INTO
@@ -128,13 +218,18 @@ passes
 VALUES
 (1, 4),
 (2, 6),
-(3, 5);
+(3, 5),
+(4, 7),
+(5, 2);
 
 INSERT
 INTO
 chair_lifts
 VALUES
 ('Express Quad', 'quad', 100, 10, 100, true),
+('Burnt Ridge Quad', 'quad', 386, 17, 118, true),
+('Adirondack Express II', 'quad', 391, 19, 126, true),
+('Hudson Chair', 'triple', 317, 13, 97, true),
 ('Cloud Splitter', 'gondola', 237, 15, 134, false),
 ('Northwoods Gondola', 'gondola', 400, 20, 100, true);
 
@@ -142,8 +237,32 @@ INSERT
 INTO
 schedule
 VALUES
-('Base Lodge', 1, '2019-12-25', 1),
-('Tannery Pub', 2, '2019-12-12', 2),
+('Base Lodge', 3, '2019-12-25', 2),
+('Base Lodge', 3, '2019-12-26', 2),
+('Base Lodge', 3, '2019-12-27', 2),
+('Base Lodge', 3, '2019-12-28', 2),
+('Base Lodge', 3, '2019-12-29', 2),
+('Base Lodge', 3, '2019-12-30', 2),
+('Base Lodge', 3, '2019-12-31', 2),
+('Base Lodge', 3, '2019-1-1', 2),
+('Base Lodge', 3, '2019-12-25', 5),
+('Base Lodge', 3, '2019-12-26', 5),
+('Base Lodge', 3, '2019-12-27', 5),
+('Base Lodge', 3, '2019-12-28', 5),
+('Base Lodge', 3, '2019-12-29', 5),
+('Base Lodge', 3, '2019-12-30', 5),
+('Base Lodge', 3, '2019-12-31', 5),
+('Base Lodge', 3, '2019-1-1', 5),
+('Ski Patrol', 2, '2020-1-1', 3),
+('Patrol Hut', 2, '2020-1-2', 3),
+('Ski Patrol', 2, '2020-1-4', 3),
+('Patrol Hut', 2, '2020-1-6', 3),
+('Ski Patrol', 2, '2020-1-7', 3),
+('Patrol Hut', 2, '2020-1-8', 3),
+('Ski Patrol', 2, '2020-1-10', 3),
+('Patrol Hut', 2, '2020-1-11', 3),
+('Ski Patrol', 2, '2020-1-12', 3),
+('Patrol Hut', 2, '2020-1-14', 3),
 ('Patrol Hut', 3, '2019-12-12', 3);
 
 INSERT
@@ -169,6 +288,7 @@ VALUES
 (2, 4,'2019-12-12', 2),
 (2, 6, '2019-12-12', 3),
 (2, 6, '2019-12-13', 3);
+
 '''
 
 # of a query
