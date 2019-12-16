@@ -284,7 +284,7 @@ VALUES
 ('Express Quad', 7, '2020-1-10', 5),
 ('Adirondack Express II', 7, '2020-1-11', 2),
 ('Northwoods Gondola', 7, '2020-1-12', 2),
-('Express Quad', 7, '2020-1-14', 5),q
+('Express Quad', 7, '2020-1-14', 5),
 ('Ski School', 5, '2020-01-02', 5),
 ('Ski School', 5, '2020-01-03', 5),
 ('Ski School', 5, '2020-01-04', 5),
@@ -329,21 +329,21 @@ VALUES
 ('2020-01-20', 2, 0, 'frozen_granular', 'frozen_granular', 44),
 ('2020-01-21', 2, 3, 'powder', 'frozen_granular', 47),
 ('2020-01-22', 2, 6, 'powder', 'packed_powder', 53),
-('2020-01-22', 2, 2, 'powder', 'powder', 55),
-('2020-01-22', 2, 7, 'powder', 'powder', 62),
-('2020-01-22', 2, 3, 'powder', 'powder', 65);
+('2020-01-23', 2, 2, 'powder', 'powder', 55),
+('2020-01-24', 2, 7, 'powder', 'powder', 62),
+('2020-01-25', 2, 3, 'powder', 'powder', 65);
 
 INSERT
 INTO
 ski_patrol_report
 VALUES
-(2, '2019-12-25', 950,'Broken arm halfway down Showcase. Skier was transported to the base via a toboggan.'),
+(2, '2019-12-25', 950, 'Broken arm halfway down Showcase. Skier was transported to the base via a toboggan.'),
 (2, '2019-12-12', 1200, 'Unexperienced skier unable to make their way down the trail on Lies, snow mobile was called to 
 transport skier to the base.'),
 (2, '2019-12-13', 1000, 'Concussion on Lies, the skier was transported to the base via toboggan.'),
 (2, '2019-12-14', 1100, 'Hurt knee on Wild Air. Skier was transported to the base via a toboggan for further inspection.'),
-(2, '2019-12-13', 1350, 'Skier hit tree on Twister Glades, they appear to be fine but were frightened. Advised to go home.')
-(2, '2020-01-25', 950,'Broken arm halfway down Showcase. Skier was transported to the base via a toboggan.'),
+(2, '2019-12-13', 1350, 'Skier hit tree on Twister Glades, they appear to be fine but were frightened. Advised to go home.'),
+(2, '2020-01-25', 950, 'Broken arm halfway down Showcase. Skier was transported to the base via a toboggan.'),
 (2, '2020-02-12', 1200, 'Unexperienced skier unable to make their way down the trail on Lies, snow mobile was called to 
 transport skier to the base.'),
 (2, '2020-02-13', 1000, 'Concussion on Lies, the skier was transported to the base via toboggan.'),
