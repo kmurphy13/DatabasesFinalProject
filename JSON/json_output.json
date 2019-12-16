@@ -3,173 +3,208 @@
     {
       "user_id": 1,
       "email": "knmurp16@stlawu.edu",
-      "first_name": "Kira",
-      "last_name": "Murphy"
+      "name": {
+        "first_name": "Kira",
+        "last_name": "Murphy"
+      }
     },
     {
       "user_id": 2,
-      "email": "rwlebl16@stlawu.edu",
-      "first_name": "Remi",
-      "last_name": "LeBlanc"
+      "email": "jbpeek@stlawu.edu",
+      "name": {
+        "first_name": "Jonas",
+        "last_name": "Peak"
+      }
     },
     {
       "user_id": 3,
-      "email": "jbpeek@stlawu.edu",
-      "first_name": "Jonas",
-      "last_name": "Peek"
+      "email": "rwlebl16@stlawu.edu",
+      "name": {
+        "first_name": "Remi",
+        "last_name": "LeBlanc"
+      }
     },
     {
-      "user_id": 4,
+      "user_id": 5,
       "email": "edharcourt@stlawu.edu",
-      "first_name": "Ed",
-      "last_name": "Harcourt"
-    }
-  ],
-  "skiers": [
-    {
-      "user_id": 1,
-      "days_skied": 20
-    },
-    {
-      "user_id": 4,
-      "days_skied": 25
+      "name": {
+        "first_name": "Ed",
+        "last_name": "Harcourt"
+      }
     }
   ],
   "workers": [
     {
       "user_id": 1,
-      "position": "DBM",
-      "wage": 100000
+      "position": "owner"
     },
     {
       "user_id": 2,
-      "position": "DBM",
-      "wage": 100000
+      "position": "ski_patrol"
     },
     {
       "user_id": 3,
-      "position": "DBM",
-      "wage": 100000
+      "position": "cook"
+    }
+  ],
+  "jobs" : [
+    {
+      "position": "owner",
+      "wage": 80
+    },
+    {
+      "position": "manager",
+      "wage": 37
+    },
+    {
+      "position": "ski_patrol",
+      "wage": 25
+    },
+    {
+      "position": "chairlift_operator",
+      "wage": 12
     }
   ],
   "rentals": [
     {
-      "user_id": 1,
-      "equipment_type": "ski_boots",
-      "start_date": "12/15/2019",
-      "end_date": "12/17/2019"
+      "rental_id": 1,
+      "user_id": 4,
+      "start_date": "2019-12-12",
+      "end_date": "2019-12-13"
     },
     {
-      "user_id": 2,
-      "equipment_type": "snowboard",
-      "start_date": "12/15/2019",
-      "end_date": "12/25/2019"
+      "rental_id": 2,
+      "user_id": 6,
+      "start_date": "2019-12-15",
+      "end_date": "2019-12-15"
     }
   ],
   "passes": [
     {
-      "user_id": 1,
+      "user_id": 4,
       "pass_type": "season",
-      "start_date": "12/15/2019",
-      "end_date": "4/19/2020"
+      "start_date": "2019-11-18"
     },
     {
-      "user_id": 2,
-      "pass_type": "season",
-      "start_date": "12/15/2019",
-      "end_date": "4/19/2020"
-    },
-    {
-      "user_id": 3,
+      "user_id": 6,
       "pass_type": "day",
-      "start_date": "12/25/2019",
-      "end_date": "12/25/2019"
+      "start_date": "2019-12-15"
+    },
+    {
+      "user_id": 5,
+      "pass_type": "day",
+      "start_date": "2019-12-12"
     }
   ],
   "ski_log": [
     {
-      "user_id": 1,
-      "date": "12/15/2019",
-      "time": 805,
-      "trail_name": "The Rumor"
+      "user_id": 5,
+      "date": "2019-12-12",
+      "time": 930,
+      "trail_name": "Ruby Run"
     },
     {
-      "user_id": 1,
-      "date": "12/15/2019",
-      "time": 905,
-      "trail_name": "Showcase"
+      "user_id": 4,
+      "date": "2019-12-13",
+      "time": 903,
+      "trail_name": "Wild Air"
     },
     {
-      "user_id": 2,
-      "date": "12/20/2019",
-      "time": 1230,
+      "user_id": 6,
+      "date": "2019-12-15",
+      "time": 942,
       "trail_name": "The Rumor"
     }
   ],
   "pass_type": [
     {
       "type": "season",
-      "price": 550.50
+      "price": 300,
+      "length": 154
     },
     {
       "type": "day",
-      "price": 100.50
+      "price": 75,
+      "length": 1
+    },
+    {
+      "type": "half_day",
+      "price": 40,
+      "length": 1
+    },
+    {
+      "type": "two_day",
+      "price": 140,
+      "length": 2
     },
     {
       "type": "three_day",
-      "price": 230.30
+      "price": 200,
+      "length": 3
+    },
+    {
+      "type": "week",
+      "price": 300,
+      "length": 7
+    },
+    {
+      "type": "month",
+      "price": 350,
+      "length": 28
     }
   ],
   "schedule": [
     {
       "facility_name": "Base Lodge",
-      "user_id": 1,
-      "date": "12/25/2019",
-      "time_slot": 1
-    },
-    {
-      "facility_name": "Tannery Pub",
-      "user_id": 5,
-      "date": "12/25/2019",
+      "user_id": 3,
+      "date": "2019-12-10",
       "time_slot": 2
     },
     {
-      "facility_name": "Patrol Hut",
-      "user_id": 4,
-      "date": "12/25/2019",
-      "time_slot": 3
+      "facility_name": "Express Quad",
+      "user_id": 7,
+      "date": "2010-01-01",
+      "time_slot": 2
+    },
+    {
+      "facility_name": "Adirondack Express II",
+      "user_id": 7,
+      "date": "2020-01-01",
+      "time_slot": 5
     }
   ],
   "lessons": [
     {
-      "teacher_id": 3,
-      "skier_id": 1,
-      "date": "12/25/2019",
-      "time_slot": 1
+      "teacher_id": 5,
+      "user_id": 4,
+      "date": "2020-01-02",
+      "time_slot": 5
     },
     {
-      "teacher_id": 3,
-      "skier_id": 4,
-      "date": "1/6/2020",
-      "time_slot": 1
+      "teacher_id": 5,
+      "user_id": 4,
+      "date": "2020-01-02",
+      "time_slot": 5
     },
     {
-      "teacher_id": 3,
-      "skier_id": 4,
-      "date": "12/26/2019",
-      "time_slot": 2
+      "teacher_id": 5,
+      "user_id": 6,
+      "date": "2020-02-02",
+      "time_slot": 5
     }
   ],
   "ski_patrol_report": [
     {
-      "worker_id": 3,
-      "date": "12/25/2019",
-      "time": 645
+      "user_id": 2,
+      "date": "2019-12-25",
+      "time": 950,
+      "description": "Broken arm halfway down Showcase. Skier was transported to the base via a toboggan."
     },
     {
-      "worker_id": 3,
-      "date": "12/30/2019",
-      "time": 820
+      "user_id": 2,
+      "date": "2019-12-12",
+      "time": 1200,
+      "description": "Inexperienced skier unable to make their way down the trail on Lies, snow mobile was called to transport skier to the base."
     }
   ],
   "time_slots": [
@@ -180,7 +215,12 @@
     },
     {
       "time_slot": 2,
-      "start_time": 1200,
+      "start_time": 800,
+      "length": 4
+    },
+    {
+      "time_slot": 3,
+      "start_time": 600,
       "length": 4
     }
   ],
@@ -209,20 +249,20 @@
   ],
   "conditions": [
     {
-      "date": "12/15/2019",
+      "date": "2019-12-12",
       "reporter": 1,
-      "snowfall": 5,
-      "primary_surface": "packed powder",
+      "snowfall": 3,
+      "primary_surface": "packed_powder",
       "secondary_surface": "powder",
-      "base_depth": 20
+      "base_depth": 5
     },
     {
-      "date": "12/16/2019",
+      "date": "2019-12-25",
       "reporter": 1,
-      "snowfall": 2,
-      "primary_surface": "packed powder",
+      "snowfall": 0,
+      "primary_surface": "packed_powder",
       "secondary_surface": "powder",
-      "base_depth": 25
+      "base_depth": 8
     }
   ],
   "chair_lifts": [
@@ -231,30 +271,42 @@
       "type": "quad",
       "length": 100,
       "num_poles": 10,
-      "num_chairs": 100,
-      "status": true
+      "num_chairs": 100
     },
     {
       "name": "Cloud Splitter",
       "type": "gondola",
       "length": 257,
       "num_poles": 15,
-      "num_chairs": 134,
-      "status": false
+      "num_chairs": 134
     }
   ],
   "facilities": [
     {
       "facility_name": "Base Lodge",
       "type": "lodge",
-      "capacity": 500,
+      "capacity": 20,
       "status": true
     },
     {
-      "facility_name": "Ski Patrol Hut",
-      "type": "hut",
-      "capacity": 20,
+      "facility_name": "Hudson Chair",
+      "type": "chairlift",
+      "capacity": 5,
       "status": true
+    }
+  ],
+  "equipment":[
+    {
+      "rental_id": 1,
+      "equipment_type": "skis"
+    },
+    {
+      "rental_id": 1,
+      "equipment_type": "poles"
+    },
+    {
+      "rental_id": 2,
+      "equipment_type": "snowboard"
     }
   ]
 }
