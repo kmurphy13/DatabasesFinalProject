@@ -36,47 +36,32 @@
   "workers": [
     {
       "user_id": 1,
-      "position": "owner"
-    },
-    {
-      "user_id": 2,
-      "position": "ski_patrol"
-    },
-    {
-      "user_id": 3,
-      "position": "cook"
-    }
-  ],
-  "jobs" : [
-    {
       "position": "owner",
       "wage": 80
     },
     {
-      "position": "manager",
+      "user_id": 2,
+      "position": "ski_patrol",
       "wage": 37
     },
     {
-      "position": "ski_patrol",
-      "wage": 25
-    },
-    {
-      "position": "chairlift_operator",
+      "user_id": 3,
+      "position": "cook",
       "wage": 12
     }
   ],
   "rentals": [
     {
-      "rental_id": 1,
       "user_id": 4,
       "start_date": "2019-12-12",
-      "end_date": "2019-12-13"
+      "end_date": "2019-12-13",
+      "equipment": ["skis","goggles","ski_boots","helmet","poles"]
     },
     {
-      "rental_id": 2,
       "user_id": 6,
       "start_date": "2019-12-15",
-      "end_date": "2019-12-15"
+      "end_date": "2019-12-15",
+      "equipment": ["snowboard_boots", "boots"]
     }
   ],
   "passes": [
@@ -293,20 +278,6 @@
       "type": "chairlift",
       "capacity": 5,
       "status": true
-    }
-  ],
-  "equipment":[
-    {
-      "rental_id": 1,
-      "equipment_type": "skis"
-    },
-    {
-      "rental_id": 1,
-      "equipment_type": "poles"
-    },
-    {
-      "rental_id": 2,
-      "equipment_type": "snowboard"
     }
   ]
 }
