@@ -84,21 +84,65 @@
   "ski_log": [
     {
       "user_id": 5,
-      "date": "2019-12-12",
-      "time": 930,
-      "trail_name": "Ruby Run"
+      "ski_days": [
+        {
+          "date": "2019-12-12",
+          "runs": [
+            {
+              "time": 930,
+              "trail_name": "Ruby Run"
+            },
+            {
+              "time": 945,
+              "trail_name": "Wild Air"
+            }
+          ]
+        },
+        {
+          "date": "2019-12-13",
+          "runs": [
+            {
+              "time": 1200,
+              "trail_name": "Wild Air"
+            },
+            {
+              "time": 1230,
+              "trail_name": "Ruby Run"
+            }
+          ]
+        }
+      ]
     },
     {
       "user_id": 4,
-      "date": "2019-12-13",
-      "time": 903,
-      "trail_name": "Wild Air"
-    },
-    {
-      "user_id": 6,
-      "date": "2019-12-15",
-      "time": 942,
-      "trail_name": "The Rumor"
+      "ski_days": [
+        {
+          "date": "2019-12-25",
+          "runs": [
+            {
+              "time": 900,
+              "trail_name": "Ruby Run"
+            },
+            {
+              "time": 915,
+              "trail_name": "Ruby Run"
+            }
+          ]
+        },
+        {
+          "date": "2019-12-29",
+          "runs": [
+            {
+              "time": 1300,
+              "trail_name": "Ruby Run"
+            },
+            {
+              "time": 1330,
+              "trail_name": "Ruby Run"
+            }
+          ]
+        }
+      ]
     }
   ],
   "pass_type": [
@@ -161,19 +205,19 @@
   "lessons": [
     {
       "teacher_id": 5,
-      "user_id": 4,
+      "user_id": [4, 5, 6],
       "date": "2020-01-02",
       "time_slot": 5
     },
     {
       "teacher_id": 5,
-      "user_id": 4,
+      "user_id": [2,3,7],
       "date": "2020-01-02",
-      "time_slot": 5
+      "time_slot": 6
     },
     {
-      "teacher_id": 5,
-      "user_id": 6,
+      "teacher_id": 6,
+      "user_id": [2,5],
       "date": "2020-02-02",
       "time_slot": 5
     }
