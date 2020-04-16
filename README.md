@@ -1,1 +1,1 @@
-read this
+This is my completed final project for SLU CS345. This class was taught at St. Lawrence University by Dr. Ed Harcourt. I took this class in Fall 2019 and worked on this with two other students, Jonas Peek and Remi LeBlanc.
